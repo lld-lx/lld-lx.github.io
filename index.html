@@ -147,6 +147,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/16/linux%E5%AE%89%E8%A3%85mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lld">
+      <meta itemprop="description" content="记录一些平时学的知识">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玲珑豆的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/16/linux%E5%AE%89%E8%A3%85mysql/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-16 12:02:49 / 修改时间：12:01:47" itemprop="dateCreated datePublished" datetime="2022-05-16T12:02:49+08:00">2022-05-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="linux-下安装-mysql"><a href="#linux-下安装-mysql" class="headerlink" title="linux 下安装 mysql"></a>linux 下安装 mysql</h1><h3 id="先检查mysql是否已经存在"><a href="#先检查mysql是否已经存在" class="headerlink" title="先检查mysql是否已经存在"></a>先检查mysql是否已经存在</h3><pre><code>rpm -qa | grep mysql        # rpm -qa 查看所有安装包
+rpm -e 文件名               # 删除安装包
+</code></pre>
+<h3 id="通过wegt下载mysql"><a href="#通过wegt下载mysql" class="headerlink" title="通过wegt下载mysql"></a>通过wegt下载mysql</h3><pre><code>1. 使用国内数据源(速度快)
+    镜像地址： http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/
+    选一个下载链接： http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-8.0.27-linux-glibc2.12-x86_64.tar.xz
+
+2. wget 通过链接下载
+    命令：wget -i -c http://mirrors.ustc.edu.cn/mysql-ftp/Downloads/MySQL-8.0/mysql-8.0.27-linux-glibc2.12-x86_64.tar.xz
+
+    解释：
+    -i --input-file=FILE     # 下载本地或外部 FILE 中的 URLs   
+    -c  --continue           # 断点续传下载文件
+</code></pre>
+<h3 id="解压mysql压缩包"><a href="#解压mysql压缩包" class="headerlink" title="解压mysql压缩包"></a>解压mysql压缩包</h3><pre><code>tar -xvf mysql-8.0.20-linux-glibc2.12-x86_64 -C /usr/local/
+
+解释：
+-x --extract, --get     # 解压文件
+-v --verbose            # 显示详细的tar处理的文件信息
+-f --file               # 要操作的文件名
+-C --directory=DIR      # 解压文件至指定的目录
+
+-z --gzip, --gunzip, --ungzip      # 通过 gzip 来进行归档压缩
+-c --create                        # 创建新的文档 
+
+tar -xvf    # 常用解压缩命令
+tar -zcvf   # 常用压缩命令
+</code></pre>
+<h3 id="创建一个软链接-应该是可选的"><a href="#创建一个软链接-应该是可选的" class="headerlink" title="创建一个软链接(应该是可选的)"></a>创建一个软链接(应该是可选的)</h3><pre><code>ln -s /usr/local/mysql-5.7.27-linux-glibc2.12-x86_64/ /usr/local/mysql
+
+解释:
+-s --symbolic   # 在指定位置生成一个文件的镜像,类似于windows的快捷键
+</code></pre>
+<h3 id="进入mysql目录配置相关内容"><a href="#进入mysql目录配置相关内容" class="headerlink" title="进入mysql目录配置相关内容"></a>进入mysql目录配置相关内容</h3><pre><code>cd /usr/local/mysql
+groupadd mysql      # 创建一个名为mysql的组
+useradd -r -g mysql -s /bin/false mysql     # 创建系统用户
+
+mkdir mysql-files
+chown mysql:mysql mysql-files/  # 文件夹所有者设置为名为mysql的用户和组
+chmod 750 mysql-files/          # 分配权限
+
+mkdir -p /opt/mysql/data
+chown mysql:mysql /opt/mysql/data/
+chmod 750 /opt/mysql/data/
+
+mkdir -p /var/log/mysql
+chown mysql:mysql /var/log/mysql/
+chmod 750 /var/log/mysql/
+
+解释：
+useradd 
+    -r --system         # 建立系统账号
+    -g --gid GROUP      # 指定用户所属的起始群组
+    -s --shell SHELL    # 指定用户登入后所使用的shell
+chmod
+    750   # 指定用户权限7, 组权限5, 其他用户组权限0
+    读(4) 、 写(2)、 可执行(1)
+</code></pre>
+<h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><pre><code>./bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/opt/mysql/data/
+
+输入日志中最后一条显示了初始化的登入数据库账号密码：
+[Note] A temporary password is generated for root@localhost: -ymdPl&gt;-q0+Q
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/26/markdown%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -349,7 +470,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-26 14:01:45" itemprop="dateModified" datetime="2022-04-26T14:01:45+08:00">2022-04-26</time>
+                <time title="修改时间：2022-04-27 10:42:30" itemprop="dateModified" datetime="2022-04-27T10:42:30+08:00">2022-04-27</time>
               </span>
 
           
@@ -363,8 +484,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>学习html语法<br>学习css语法<br>了解kafka消息队列的结构<br>学习react<br>生命周期<br>props、state<br>jsx<br>hook<br>…….<br>重新学习python的类<br>元类（概念、type等）<br>magic类</p>
-
+          
       
     </div>
 
@@ -515,7 +635,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
