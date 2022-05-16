@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-05-16 12:11:00 / 修改时间：12:11:51" itemprop="dateCreated datePublished" datetime="2022-05-16T12:11:00+08:00">2022-05-16</time>
+              <time title="创建时间：2022-05-16 12:00:00 / 修改时间：15:31:55" itemprop="dateCreated datePublished" datetime="2022-05-16T12:00:00+08:00">2022-05-16</time>
             </span>
 
           
@@ -186,7 +186,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="先检查mysql是否已经存在"><a href="#先检查mysql是否已经存在" class="headerlink" title="先检查mysql是否已经存在"></a>先检查mysql是否已经存在</h3><pre><code>rpm -qa | grep mysql        # rpm -qa 查看所有安装包
+          <h1 id="linux-下安装-mysql"><a href="#linux-下安装-mysql" class="headerlink" title="linux 下安装 mysql"></a>linux 下安装 mysql</h1><h3 id="先检查mysql是否已经存在"><a href="#先检查mysql是否已经存在" class="headerlink" title="先检查mysql是否已经存在"></a>先检查mysql是否已经存在</h3><pre><code>rpm -qa | grep mysql        # rpm -qa 查看所有安装包
 rpm -e 文件名               # 删除安装包
 </code></pre>
 <h3 id="通过wegt下载mysql"><a href="#通过wegt下载mysql" class="headerlink" title="通过wegt下载mysql"></a>通过wegt下载mysql</h3><pre><code>1. 使用国内数据源(速度快)
@@ -247,7 +247,51 @@ chmod
 <h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><pre><code>./bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/opt/mysql/data/
 
 输入日志中最后一条显示了初始化的登入数据库账号密码：
-[Note] A temporary password is generated for root@localhost: -ymdPl&gt;-q0+Q
+[Note] A temporary password is generated for root@localhost: xxxx
+
+初始化时, 可能会出现：
+Failed to set datadir to &#39;/opt/mysql/data/&#39; (OS errno: 13 - Permission denied)
+原因是上面只分配了data文件夹的可读写权限，需要再给opt、mysql都加一遍
+</code></pre>
+<h3 id="完成配置"><a href="#完成配置" class="headerlink" title="完成配置"></a>完成配置</h3><pre><code>vim /etc/my.cnf     # 编辑配置参数
+    [mysqld]
+    datadir=/opt/mysql/data
+    pid-file=/var/log/mysql/mysql.pid
+
+    [mysqld_safe]
+    log-error=/var/log/mysql/error.log
+    socket=/var/log/mysql/mysql.sock
+
+    [client]
+    port=3306
+    socket=/var/lib/mysql/mysql.sock
+
+cp support-files/mysql.server /etc/init.d/mysql.server
+
+vim /etc/init.d/mysql.server
+    basedir=/usr/local/mysql
+    datadir=/opt/mysql/data
+</code></pre>
+<h3 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h3><pre><code>/etc/init.d/mysql.server start   # 启动
+netstat -nltup|grep 3306         # 查看启动情况
+</code></pre>
+<h3 id="添加一个软链接到-x2F-usr-x2F-bin目录下"><a href="#添加一个软链接到-x2F-usr-x2F-bin目录下" class="headerlink" title="添加一个软链接到&#x2F;usr&#x2F;bin目录下"></a>添加一个软链接到&#x2F;usr&#x2F;bin目录下</h3><pre><code>ln -s /usr/local/mysql/bin/mysql /usr/bin
+
+解释：
+linux系统默认会去/usr/bin下查找命令，将命令软链接到这个目录下即可
+</code></pre>
+<h3 id="进入mysql"><a href="#进入mysql" class="headerlink" title="进入mysql"></a>进入mysql</h3><pre><code>mysql -uroot -p
+xxxx  # 上面初始化时候的密码
+
+ALTER user &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;root&#39;;  # 修改密码为root  (8.0版本)
+</code></pre>
+<h3 id="远程访问设置"><a href="#远程访问设置" class="headerlink" title="远程访问设置"></a>远程访问设置</h3><pre><code>use mysql;
+update user set host = &#39;%&#39; where user = &#39;root&#39;;  # 将root设置为允许远程访问
+flush privileges;   # 刷新权限
+
+这里记得另外检查两个地方
+1. my.cf 里是否限制了不允许远程访问
+2. 云服务器是否开放了3306端口
 </code></pre>
 
       
