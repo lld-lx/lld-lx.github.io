@@ -2,8 +2,8 @@
 
 	var c = document.getElementById('c'),
 		$ = c.getContext('2d'),
-		w = c.width = window.innerWidth,
-		h = c.height = window.innerHeight;
+		w = c.width = window.outerWidth,
+		h = c.height = window.outerHeight;
 
 	var i, bubblesNumber = w * h > 750000 ? 200 : 150,
 		objects = [],
