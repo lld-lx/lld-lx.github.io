@@ -5,6 +5,8 @@
 		m = document.getElementById('top')
 		w = c.width = m.clientWidth,
 		h = c.height = m.clientHeight;
+	console.log(w);
+	console.log(h);
 
 	var i, bubblesNumber = w * h > 750000 ? 200 : 150,
 		objects = [],
