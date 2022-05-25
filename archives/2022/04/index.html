@@ -75,7 +75,17 @@
 </noscript>
 
 </head>
-<canvas id="c">
+<style>
+body{
+	position: relative;
+	margin: 0;
+}
+
+canvas{
+	position: absolute;
+	cursor: crosshair;
+}</style>
+<canvas id="c"></canvas>
  <!-- 全屏泡泡特效 -->
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -485,6 +495,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   </div>
 </div><script src="/js/injector.js"></script>
 </body>
-</canvas>
 <script type="text/javascript" src="/js/Bubbles.js"></script>
 </html>
