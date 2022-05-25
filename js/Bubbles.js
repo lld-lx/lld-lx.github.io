@@ -154,13 +154,18 @@
 
 	window.addEventListener('resize', function() {
 		m = document.getElementById('top');
-		console.log(m.clientWidth);
-		console.log(m.clientHeight);
 		w = world.physicalProperties.width = c.width = m.clientWidth;
 		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
 	});
-
+	
+	window.onload = function(){
+		m = document.getElementById('top');
+		w = world.physicalProperties.width = c.width = m.clientWidth;
+		h = world.physicalProperties.height = c.height = m.clientHeight;
+		$.globalCompositeOperation = 'lighter';
+	};
+	
 	window.addEventListener('mousemove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
 			if ((world.objects[i] instanceof Bubble) && (e.clientX > world.objects[i].x - world.objects[i].radius && e.clientX < world.objects[i].x + world.objects[i].radius && e.clientY < world.objects[i].y + world.objects[i].radius && e.clientY > world.objects[i].y - world.objects[i].radius)) {
