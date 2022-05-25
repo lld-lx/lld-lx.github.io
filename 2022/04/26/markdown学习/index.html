@@ -83,14 +83,17 @@ body{
 	margin: 0;
 }
 
-canvas{
+.background-bubble{
 	position: absolute;
 	z-index:-9999;
 }</style>
 
 <body itemscope itemtype="http://schema.org/WebPage">
  <!-- 全屏泡泡特效 -->
-	 <canvas id="c"></canvas>
+  <div class="background-bubble">
+	<canvas id="c"></canvas>
+  </div>
+  
   <div class="container use-motion">
     <div class="headband"></div>
 	
