@@ -1,7 +1,7 @@
 (function aa() {
 
 	var c = document.getElementById('c'),
-		$ = c.getContext('2d'),
+		$ = c.getContext('2d');
 
 	
 	function getMAth(){
