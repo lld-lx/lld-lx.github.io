@@ -2,7 +2,7 @@
 
 	var c = document.getElementById('c'),
 		$ = c.getContext('2d'),
-		m = document.getElementById('main')
+		m = document.getElementById('top')
 		w = c.width = m.clientWidth,
 		h = c.height = m.clientHeight;
 
@@ -151,13 +151,13 @@
 
 	world.animate();
 
-	c.addEventListener('resize', function() {
+	m.addEventListener('resize', function() {
 		w = world.physicalProperties.width = c.width = m.clientWidth;
 		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
 	});
 
-	c.addEventListener('mousemove', function(e) {
+	m.addEventListener('mousemove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
 			if ((world.objects[i] instanceof Bubble) && (e.clientX > world.objects[i].x - world.objects[i].radius && e.clientX < world.objects[i].x + world.objects[i].radius && e.clientY < world.objects[i].y + world.objects[i].radius && e.clientY > world.objects[i].y - world.objects[i].radius)) {
 				world.objects[i].pop(world);
@@ -165,7 +165,7 @@
 		}
 	});
 
-	c.addEventListener('touchmove', function(e) {
+	m.addEventListener('touchmove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
 			if ((world.objects[i] instanceof Bubble) && (e.touches[0].clientX > world.objects[i].x - world.objects[i].radius && e.touches[0].clientX < world.objects[i].x + world.objects[i].radius && e.touches[0].clientY < world.objects[i].y + world.objects[i].radius && e.touches[0].clientY > world.objects[i].y - world.objects[i].radius)) {
 				world.objects[i].pop(world);
