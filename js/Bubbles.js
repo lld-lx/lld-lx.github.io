@@ -6,7 +6,7 @@
 	
 	function getMAth(){
 		m = document.getElementById('top');
-		w = c.width = m.clientWidth,
+		w = c.width = m.clientWidth;
 		h = c.height = m.clientHeight;
 		console.log(w);
 		console.log(h);
