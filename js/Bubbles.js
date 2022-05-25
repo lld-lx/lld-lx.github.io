@@ -154,6 +154,8 @@
 
 	window.addEventListener('resize', function() {
 		m = document.getElementById('top');
+		console.log(m.clientWidth);
+		console.log(m.clientHeight);
 		w = world.physicalProperties.width = c.width = m.clientWidth;
 		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
