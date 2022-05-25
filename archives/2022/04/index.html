@@ -76,10 +76,6 @@
 
 </head>
 <style>
-body{
-	position: relative;
-	margin: 0;
-}
 
 .background-bubble{
 	position: absolute;
@@ -91,12 +87,11 @@ body{
   <div class="background-bubble">
 	<canvas id="c"></canvas>
   </div>
-  <div id="top">
-	  <div class="container use-motion">
-		<div class="headband"></div>
-		
-		<header class="header" itemscope itemtype="http://schema.org/WPHeader">
-		  <div class="header-inner"><div class="site-brand-container">
+  <div id="top" class="container use-motion">
+	<div class="headband"></div>
+	
+	<header class="header" itemscope itemtype="http://schema.org/WPHeader">
+	  <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -170,18 +165,18 @@ body{
   </div>
 
 </div>
-		</header>
+	</header>
 
-		
+	
 
 
-		<main class="main">
-		  <div class="main-inner">
-			<div class="content-wrap">
-			  
+	<main class="main">
+	  <div class="main-inner">
+		<div class="content-wrap">
+		  
 
-			  <div class="content archive">
-				
+		  <div class="content archive">
+			
 
   
   
@@ -288,8 +283,8 @@ body{
 
 
 
-			  </div>
-			  
+		  </div>
+		  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -313,8 +308,8 @@ body{
   }
 </script>
 
-			</div>
-			  
+		</div>
+		  
   
   <div class="toggle sidebar-toggle">
     <span class="toggle-line toggle-line-first"></span>
@@ -375,14 +370,14 @@ body{
   <div id="sidebar-dimmer"></div>
 
 
-		  </div>
-		</main>
+	  </div>
+	</main>
 
-		<footer class="footer">
-		  <div class="footer-inner">
-			
+	<footer class="footer">
+	  <div class="footer-inner">
+		
 
-			
+		
 
 <div class="copyright">
   
@@ -394,7 +389,7 @@ body{
   <span class="author" itemprop="copyrightHolder">lld</span>
 </div>
 
-			
+		
 
 
 
@@ -403,11 +398,11 @@ body{
 
 
 
-		  </div>
-		</footer>
 	  </div>
+	</footer>
+  </div>
 
-	  
+  
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
@@ -425,7 +420,7 @@ body{
 
 
 
-	  
+  
 
 
 
@@ -445,9 +440,9 @@ body{
 
 
 
-	  
+  
 
-	  
+  
 
 
 <script>
@@ -498,7 +493,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     </div>
   </div>
 </div><script src="/js/injector.js"></script>
-  </div>
 
 </body>
 
