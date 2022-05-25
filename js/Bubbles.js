@@ -2,17 +2,17 @@
 
 	var c = document.getElementById('c'),
 		$ = c.getContext('2d'),
-		m = document.getElementById('top')
 
 	
 	function getMAth(){
-		w = c.width = m.clientWidth,
-		h = c.height = m.clientHeight;
+		m = document.getElementById('top');
+		var w = c.width = m.clientWidth,
+			h = c.height = m.clientHeight;
 		console.log(w);
 		console.log(h);
 	}
 	
-	setTimeout(getMAth(), 0);
+	setTimeout("getMAth", 0);
 	
 
 	var i, bubblesNumber = w * h > 750000 ? 200 : 150,
