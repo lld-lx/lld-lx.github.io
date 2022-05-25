@@ -4,7 +4,7 @@
 		$ = c.getContext('2d');
 
 	
-	function getMAth(){
+	function getMAth() {
 		m = document.getElementById('top');
 		w = c.width = m.clientWidth;
 		h = c.height = m.clientHeight;
