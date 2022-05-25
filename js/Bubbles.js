@@ -1,18 +1,10 @@
 (function aa() {
 
 	var c = document.getElementById('c'),
-		$ = c.getContext('2d');
-
-	
-	function getMAth() {
-		m = document.getElementById('top');
-		w = c.width = m.clientWidth;
+		$ = c.getContext('2d'),
+		m = document.getElementById('top'),
+		w = c.width = m.clientWidth,
 		h = c.height = m.clientHeight;
-		console.log(w);
-		console.log(h);
-	}
-	
-	setTimeout(getMAth(), 0);
 	
 
 	var i, bubblesNumber = w * h > 750000 ? 200 : 150,
@@ -160,13 +152,14 @@
 
 	world.animate();
 
-	m.addEventListener('resize', function() {
+	window.addEventListener('resize', function() {
+		m = document.getElementById('top');
 		w = world.physicalProperties.width = c.width = m.clientWidth;
 		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
 	});
 
-	m.addEventListener('mousemove', function(e) {
+	window.addEventListener('mousemove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
 			if ((world.objects[i] instanceof Bubble) && (e.clientX > world.objects[i].x - world.objects[i].radius && e.clientX < world.objects[i].x + world.objects[i].radius && e.clientY < world.objects[i].y + world.objects[i].radius && e.clientY > world.objects[i].y - world.objects[i].radius)) {
 				world.objects[i].pop(world);
@@ -174,7 +167,7 @@
 		}
 	});
 
-	m.addEventListener('touchmove', function(e) {
+	window.addEventListener('touchmove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
 			if ((world.objects[i] instanceof Bubble) && (e.touches[0].clientX > world.objects[i].x - world.objects[i].radius && e.touches[0].clientX < world.objects[i].x + world.objects[i].radius && e.touches[0].clientY < world.objects[i].y + world.objects[i].radius && e.touches[0].clientY > world.objects[i].y - world.objects[i].radius)) {
 				world.objects[i].pop(world);
