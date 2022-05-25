@@ -2,8 +2,9 @@
 
 	var c = document.getElementById('c'),
 		$ = c.getContext('2d'),
-		w = c.width = window.innerWidth,
-		h = c.height = window.innerHeight;
+		m = document.getElementById('main')
+		w = c.width = m.clientWidth,
+		h = c.height = m.clientHeight;
 
 	var i, bubblesNumber = w * h > 750000 ? 200 : 150,
 		objects = [],
@@ -151,8 +152,8 @@
 	world.animate();
 
 	window.addEventListener('resize', function() {
-		w = world.physicalProperties.width = c.width = window.innerWidth;
-		h = world.physicalProperties.height = c.height = window.innerHeight;
+		w = world.physicalProperties.width = c.width = m.clientWidth;
+		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
 	});
 
