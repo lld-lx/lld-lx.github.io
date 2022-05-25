@@ -153,17 +153,19 @@
 	world.animate();
 
 	window.addEventListener('resize', function() {
-		m = document.getElementById('top');
 		w = world.physicalProperties.width = c.width = m.clientWidth;
 		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
 	});
-	
-	window.onload = function(){
-		m = document.getElementById('top');
+	window.addEventListener('load', function() {
+        m = document.getElementById('top');
 		w = world.physicalProperties.width = c.width = m.clientWidth;
 		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
+        });
+	
+	window.onload = function(){
+		
 	};
 	
 	window.addEventListener('mousemove', function(e) {
