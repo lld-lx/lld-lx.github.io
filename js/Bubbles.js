@@ -162,6 +162,8 @@
 	window.addEventListener('mousemove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
 			if ((world.objects[i] instanceof Bubble) && (e.clientX > world.objects[i].x - world.objects[i].radius && e.clientX < world.objects[i].x + world.objects[i].radius && e.clientY < world.objects[i].y + world.objects[i].radius && e.clientY > world.objects[i].y - world.objects[i].radius)) {
+				console.log(1111);
+				window.world = world;
 				world.objects[i].pop(world);
 			}
 		}
