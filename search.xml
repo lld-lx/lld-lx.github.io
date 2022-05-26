@@ -28,8 +28,7 @@
 有什么不同就不多说了，可以参考这个文章
 </code></pre>
 <p><a href="https://mbd.baidu.com/ma/s/U1DIOSvc">彻底搞懂 Cookie、Session、Token、JWT</a></p>
-<img src="/.com//05/24/jwt%E8%AE%BE%E8%AE%A1/jwt_check.png" class title="jwt校验逻辑">
-<img src="/.com//05/24/jwt%E8%AE%BE%E8%AE%A1/jwt_d.png" class title="jwt并发处理">
+<p><img src="/2022/05/24/jwt%E8%AE%BE%E8%AE%A1/jwt_check.png" alt="jwt校验逻辑"><br><img src="/2022/05/24/jwt%E8%AE%BE%E8%AE%A1/jwt_d.png" alt="jwt并发处理"></p>
 ]]></content>
       <tags>
         <tag>jwt</tag>
@@ -147,8 +146,8 @@ flush privileges;   # 刷新权限
 1. my.cf 里是否限制了不允许远程访问
 2. 云服务器是否开放了3306端口  
 </code></pre>
-<br>
-<br>
+<br/>
+<br/>
 
 <blockquote>
 <p>参考链接<br>MySQL 5.7 linux generic 版本安装：<a href="https://www.jianshu.com/p/7789266e9923">https://www.jianshu.com/p/7789266e9923</a><br>Linux系统下实现远程连接MySQL数据库的方法教程: <a href="https://www.jb51.net/article/115341.htm">https://www.jb51.net/article/115341.htm</a><br>MySQL更改datadir后Permission denied问题：<a href="https://github.com/flyfrank/just-do-it/issues/3">https://github.com/flyfrank/just-do-it/issues/3</a>  </p>
@@ -161,11 +160,6 @@ flush privileges;   # 刷新权限
         <tag>linux</tag>
         <tag>mysql</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/04/26/grpc%E6%A1%86%E6%9E%B6/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>markdown学习</title>
@@ -221,11 +215,16 @@ flush privileges;   # 刷新权限
         &emsp;显示
         <ul style="padding-left:3%">
             <li>序号1
-            </li><li>序号2
-        
+            <li>序号2
+        </ol>
     <div>
 <div>
-</div></div></li></ul></div></div>]]></content>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2022/04/26/grpc%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title></title>
