@@ -40,66 +40,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>markdown学习</title>
-    <url>/2022/04/26/markdown%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="Markdown学习笔记"><a href="#Markdown学习笔记" class="headerlink" title="Markdown学习笔记"></a>Markdown学习笔记</h1><h2 id="标题写法"><a href="#标题写法" class="headerlink" title="标题写法"></a>标题写法</h2><div style="background-color:#F7F7F7;border-radius:5px">
-    &emsp;\# header : 一级标题<br>
-    &emsp;\## header ：二级标题<br> 
-    &emsp;\### header : 三级标题<br> 
-    &emsp;...<br>
-    &emsp;标题最多六级,规范写法为按顺序使用<br>
-    &emsp;一级标题 -> 二级标题 -> 三级标题<br>
-    &emsp;例如：\#### headers ---> <h2 style="display:inline;">headers</h2> 
-</div>
-
-<h2 id="字符加粗"><a href="#字符加粗" class="headerlink" title="字符加粗"></a>字符加粗</h2><pre><code>\**wide** : 将中间的wide加粗    
-
-==但是加粗必须满足以下规则：==
-
-开始标记符的前后
-    1. 不能后跟空白
-    2. 标点符号
-       - 不能后跟标点符号
-       - 如果后跟标点符号，则前面必须有空白
-
-结束标记符
-    1. 前面不能是空白
-    2. 标点符号
-        1. 前面不能是标点符号
-        2. 如果前面是标点符号，则后面必须有空白  
-</code></pre>
-<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><pre><code>*斜体*
-</code></pre>
-<h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><pre><code>&amp;emsp;
-</code></pre>
-<h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><div style="background-color:#F7F7F7;border-radius:5px">
-    &emsp;支持一些html标签<br>
-    &emsp;<xmp style="display:inline;"><button>Bu</button></xmp>: <button>Bu</button> <br>
-    &emsp;<xmp style="display:inline;"><kbd>Kbd</kbd></xmp>: <kbd>Kbd</kbd>
-</div>
-
-<h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><pre><code>~~下划线~~
-</code></pre>
-<h2 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h2><pre><code>---水平线---
-</code></pre>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><pre><code>&gt;引用
-&gt;引用
-</code></pre>
-<h2 id="无序序号"><a href="#无序序号" class="headerlink" title="无序序号"></a>无序序号</h2><div style="background-color:#F7F7F7;border-radius:5px">
-    &emsp;markdown 写法：<br>
-    &emsp;&emsp;--序号 <br>
-    &emsp;&emsp;--序号 <br>
-    <div>
-        &emsp;显示
-        <ul style="padding-left:3%">
-            <li>序号1
-            </li><li>序号2
-        
-    <div>
-<div>
-</div></div></li></ul></div></div>]]></content>
-  </entry>
-  <entry>
     <title>linux 下安装 mysql</title>
     <url>/2022/05/16/linux%E5%AE%89%E8%A3%85mysql/</url>
     <content><![CDATA[<span id="more"></span>
@@ -225,6 +165,66 @@ flush privileges;   # 刷新权限
         <tag>linux</tag>
         <tag>mysql</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>markdown学习</title>
+    <url>/2022/04/26/markdown%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="Markdown学习笔记"><a href="#Markdown学习笔记" class="headerlink" title="Markdown学习笔记"></a>Markdown学习笔记</h1><h2 id="标题写法"><a href="#标题写法" class="headerlink" title="标题写法"></a>标题写法</h2><div style="background-color:#F7F7F7;border-radius:5px">
+    &emsp;\# header : 一级标题<br>
+    &emsp;\## header ：二级标题<br> 
+    &emsp;\### header : 三级标题<br> 
+    &emsp;...<br>
+    &emsp;标题最多六级,规范写法为按顺序使用<br>
+    &emsp;一级标题 -> 二级标题 -> 三级标题<br>
+    &emsp;例如：\#### headers ---> <h2 style="display:inline;">headers</h2> 
+</div>
+
+<h2 id="字符加粗"><a href="#字符加粗" class="headerlink" title="字符加粗"></a>字符加粗</h2><pre><code>\**wide** : 将中间的wide加粗    
+
+==但是加粗必须满足以下规则：==
+
+开始标记符的前后
+    1. 不能后跟空白
+    2. 标点符号
+       - 不能后跟标点符号
+       - 如果后跟标点符号，则前面必须有空白
+
+结束标记符
+    1. 前面不能是空白
+    2. 标点符号
+        1. 前面不能是标点符号
+        2. 如果前面是标点符号，则后面必须有空白  
+</code></pre>
+<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><pre><code>*斜体*
+</code></pre>
+<h2 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h2><pre><code>&amp;emsp;
+</code></pre>
+<h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><div style="background-color:#F7F7F7;border-radius:5px">
+    &emsp;支持一些html标签<br>
+    &emsp;<xmp style="display:inline;"><button>Bu</button></xmp>: <button>Bu</button> <br>
+    &emsp;<xmp style="display:inline;"><kbd>Kbd</kbd></xmp>: <kbd>Kbd</kbd>
+</div>
+
+<h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h2><pre><code>~~下划线~~
+</code></pre>
+<h2 id="水平线"><a href="#水平线" class="headerlink" title="水平线"></a>水平线</h2><pre><code>---水平线---
+</code></pre>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><pre><code>&gt;引用
+&gt;引用
+</code></pre>
+<h2 id="无序序号"><a href="#无序序号" class="headerlink" title="无序序号"></a>无序序号</h2><div style="background-color:#F7F7F7;border-radius:5px">
+    &emsp;markdown 写法：<br>
+    &emsp;&emsp;--序号 <br>
+    &emsp;&emsp;--序号 <br>
+    <div>
+        &emsp;显示
+        <ul style="padding-left:3%">
+            <li>序号1
+            </li><li>序号2
+        
+    <div>
+<div>
+</div></div></li></ul></div></div>]]></content>
   </entry>
   <entry>
     <title></title>
