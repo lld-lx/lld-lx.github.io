@@ -161,9 +161,7 @@
 	
 	window.addEventListener('mousemove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
-			if ((world.objects[i] instanceof Bubble) && (e.clientX > world.objects[i].x - world.objects[i].radius && e.clientX < world.objects[i].x + world.objects[i].radius && e.clientY < world.objects[i].y + world.objects[i].radius && e.clientY > world.objects[i].y - world.objects[i].radius)) {
-				console.log(1111);
-				window.world = world;
+			if ((world.objects[i] instanceof Bubble) && (e.screenX > world.objects[i].x - world.objects[i].radius && e.screenX < world.objects[i].x + world.objects[i].radius && e.screenY < world.objects[i].y + world.objects[i].radius && e.screenY > world.objects[i].y - world.objects[i].radius)) {
 				world.objects[i].pop(world);
 			}
 		}
@@ -171,7 +169,7 @@
 
 	window.addEventListener('touchmove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
-			if ((world.objects[i] instanceof Bubble) && (e.touches[0].clientX > world.objects[i].x - world.objects[i].radius && e.touches[0].clientX < world.objects[i].x + world.objects[i].radius && e.touches[0].clientY < world.objects[i].y + world.objects[i].radius && e.touches[0].clientY > world.objects[i].y - world.objects[i].radius)) {
+			if ((world.objects[i] instanceof Bubble) && (e.touches[0].screenX > world.objects[i].x - world.objects[i].radius && e.touches[0].screenX < world.objects[i].x + world.objects[i].radius && e.touches[0].screenY < world.objects[i].y + world.objects[i].radius && e.touches[0].screenY > world.objects[i].y - world.objects[i].radius)) {
 				world.objects[i].pop(world);
 			}
 		}
