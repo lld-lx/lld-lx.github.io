@@ -152,21 +152,12 @@
 
 	world.animate();
 
-	window.addEventListener('resize', function() {
+
+	new ResizeObserver(entries =>{
 		w = world.physicalProperties.width = c.width = m.clientWidth;
 		h = world.physicalProperties.height = c.height = m.clientHeight;
 		$.globalCompositeOperation = 'lighter';
-	});
-	window.addEventListener('load', function() {
-        m = document.getElementById('top');
-		w = world.physicalProperties.width = c.width = m.clientWidth;
-		h = world.physicalProperties.height = c.height = m.clientHeight;
-		$.globalCompositeOperation = 'lighter';
-        });
-	
-	window.onload = function(){
-		
-	};
+	}).observe(m);
 	
 	window.addEventListener('mousemove', function(e) {
 		for (var i = 0; i < world.objects.length; i++) {
